@@ -1,14 +1,15 @@
 import React from 'react';
 import HeaderNav from '../Nav/Nav';
+import '../../app/App.scss';
 
 const Layout = ({ children }) => {
   return (
-    <div className="layout">
+    <>
       <HeaderNav />
       <main>
         {children}
       </main>
-    </div>
+    </>
   );
 }
 

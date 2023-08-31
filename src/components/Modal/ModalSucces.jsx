@@ -5,14 +5,14 @@ function ModalSucces({ showModal, closeModal, confirmModal }) {
   return (
     <Modal show={showModal} onHide={closeModal}>
       <Modal.Header closeButton>
-        <Modal.Title>Cita Guardada</Modal.Title>
+        <Modal.Title>Appointment scheduled</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>La cita ha sido guardada exitosamente.</p>
+        <p>The appointment has been successfully saved</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" onClick={closeModal}>
-          Cerrar
+        <Button variant="secondary" onClick={closeModal}>
+          Close
         </Button>
       </Modal.Footer>
     </Modal>

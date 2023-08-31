@@ -16,14 +16,14 @@ function App() {
   return (
     <Router>
       <Layout>
-        <Container>
+        <div className='App'>
           <h1 className='title-app'>App-ointer Drive License</h1>
             <Routes>
               <Route path="/" element={<AppointmentForm addAppointment={addAppointment} openModal={openModal} />} />
               <Route path="/appointments" element={<AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment} />} />
             </Routes>
           <ModalSucces showModal={showModal} closeModal={closeModal} />
-        </Container>
+        </div>
       </Layout>
     </Router>
   )
