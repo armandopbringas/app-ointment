@@ -5,17 +5,17 @@ function ModalConfirm({ show, onClose, onConfirm }) {
   return (
     <Modal show={show} onHide={onClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Confirmar Eliminación</Modal.Title>
+        <Modal.Title>Confirm appointment cancellation</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>¿Estás seguro de que deseas eliminar esta cita?</p>
+        <p>Are you sure you want to cancel this appointment?</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={onClose}>
-          Cancelar
+          Cancel
         </Button>
         <Button variant="danger" onClick={onConfirm}>
-          Confirmar
+          Confirm
         </Button>
       </Modal.Footer>
     </Modal>

@@ -7,6 +7,7 @@ import ModalSucces from '../components/Modal/ModalSucces';
 import useAppointments from '../hooks/useAppointments';
 import useModal from '../hooks/useModal';
 import Layout from '../components/Layout/Layout';
+import '../app/App.scss';
 
 function App() {
   const { appointments, addAppointment, deleteAppointment } = useAppointments();
@@ -16,7 +17,7 @@ function App() {
     <Router>
       <Layout>
         <Container>
-          <h1>Cita App</h1>
+          <h1 className='title-app'>App-ointer Drive License</h1>
             <Routes>
               <Route path="/" element={<AppointmentForm addAppointment={addAppointment} openModal={openModal} />} />
               <Route path="/appointments" element={<AppointmentsList appointments={appointments} deleteAppointment={deleteAppointment} />} />

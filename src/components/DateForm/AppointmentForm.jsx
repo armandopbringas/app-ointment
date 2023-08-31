@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Form, Button, Alert, Row, Col, FormCheck  } from 'react-bootstrap';
+import { Form, Button, Alert, FormCheck,Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import '../../app/App.scss';
 
 function AppointmentForm({ addAppointment, openModal }) {
   const navigate = useNavigate();
@@ -38,24 +39,43 @@ function AppointmentForm({ addAppointment, openModal }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Form.Group>
-        <Form.Label>Día de la cita:</Form.Label>
-        <Form.Control type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+      <h5 className='app-text-instruction'>
+        Schedule your appointment to process your driver's license
+      </h5>
+      <div className='row'>
+        <Form.Group>
+          <Form.Label >Appointment Date</Form.Label>
+          <Form.Control type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Appointment Date</Form.Label>
+          <Form.Control type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+        </Form.Group>
+      </div>
+      <Form.Group controlId="name">
+        <Form.Label htmlFor="name">First Name:</Form.Label>
+        <Form.Control
+          required
+          type="text"
+          aria-required="true"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+      </Form.Group>
+      <Form.Group controlId="lastName">
+        <Form.Label htmlFor="lastName">Last Name:</Form.Label>
+        <Form.Control
+          type="text"
+          id="lastName"
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+          required
+          aria-required="true"
+        />
       </Form.Group>
       <Form.Group>
-        <Form.Label>Hora de la cita</Form.Label>
-        <Form.Control type="time" value={time} onChange={(e) => setTime(e.target.value)} />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Nombre:</Form.Label>
-        <Form.Control type="text" value={name} onChange={(e) => setName(e.target.value)} />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Apellidos:</Form.Label>
-        <Form.Control type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} />
-      </Form.Group>
-      <Form.Group>
-        <Form.Label>Asunto:</Form.Label>
+        <Form.Label>Subject:</Form.Label>
         <Form.Control
           as="textarea"
           rows={3}
@@ -66,13 +86,13 @@ function AppointmentForm({ addAppointment, openModal }) {
       <Row>
         <Col>
           <Form.Group controlId="radioOptions">
-            <Form.Label>Opciones</Form.Label>
+            <Form.Label>Choose a Service Type</Form.Label>
             <div>
               <FormCheck
                 type="radio"
                 id="option1"
                 name="radioOptions"
-                label="Opción 1"
+                label="Upgrade to REAL ID"
                 checked={selectedOption === 'option1'}
                 onChange={() => setSelectedOption('option1')}
               />
@@ -80,7 +100,7 @@ function AppointmentForm({ addAppointment, openModal }) {
                 type="radio"
                 id="option2"
                 name="radioOptions"
-                label="Opción 2"
+                label="Driving Test"
                 checked={selectedOption === 'option2'}
                 onChange={() => setSelectedOption('option2')}
               />
@@ -88,7 +108,7 @@ function AppointmentForm({ addAppointment, openModal }) {
                 type="radio"
                 id="option3"
                 name="radioOptions"
-                label="Opción 3"
+                label="Vehicle Registration"
                 checked={selectedOption === 'option3'}
                 onChange={() => setSelectedOption('option3')}
               />
@@ -96,20 +116,23 @@ function AppointmentForm({ addAppointment, openModal }) {
           </Form.Group>
         </Col>
       </Row>
-      <Form.Label>Locación</Form.Label>
-        <Form.Control
-          as="select"
+      <Form.Label>Location</Form.Label>
+        <Form.Select
           value={selectedLocation}
           onChange={(e) => setSelectedLocation(e.target.value)}
         >
-          <option value="norte">Norte</option>
-          <option value="sur">Sur</option>
-          <option value="este">Este</option>
-          <option value="oeste">Oeste</option>
-        </Form.Control>
-      <Button variant="outline-secondary" type="submit">Guardar cita</Button>
+          <option value="Main Office">Main Office</option>
+          <option value="West Branch Office">West Branch Office</option>
+          <option value="East Branch Office">East Branch Office</option>
+          <option value="South Branch Office">South Branch Office</option>
+          <option value="North Branch Office">North Branch Office</option>
+        </Form.Select>
+        <p>Please note that the North Branch Office is closed on Mondays</p>
+      <Button variant="outline-secondary" type="submit" aria-label="Guardar cita">
+        Guardar cita
+      </Button>
       {showAlert && (
-        <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible>
+        <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible role="alert" >
           Por favor, complete todos los campos.
         </Alert>
       )}
