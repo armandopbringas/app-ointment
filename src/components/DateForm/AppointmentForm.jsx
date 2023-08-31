@@ -42,39 +42,41 @@ function AppointmentForm({ addAppointment, openModal }) {
       <h5 className='app-text-instruction'>
         Schedule your appointment to process your driver's license
       </h5>
-      <div className='row'>
-        <Form.Group>
+      <div className='input-row'>
+        <Form.Group className='item'>
           <Form.Label >Appointment Date</Form.Label>
           <Form.Control type="date" value={date} onChange={(e) => setDate(e.target.value)} />
         </Form.Group>
-        <Form.Group>
+        <Form.Group className='item'>
           <Form.Label>Appointment Date</Form.Label>
           <Form.Control type="time" value={time} onChange={(e) => setTime(e.target.value)} />
         </Form.Group>
       </div>
-      <Form.Group controlId="name">
-        <Form.Label htmlFor="name">First Name:</Form.Label>
-        <Form.Control
-          required
-          type="text"
-          aria-required="true"
-          id="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group controlId="lastName">
-        <Form.Label htmlFor="lastName">Last Name:</Form.Label>
-        <Form.Control
-          type="text"
-          id="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-          aria-required="true"
-        />
-      </Form.Group>
-      <Form.Group>
+      <div className='input-row'>
+        <Form.Group controlId="name" className='item'>
+          <Form.Label htmlFor="name">First Name:</Form.Label>
+          <Form.Control
+            required
+            type="text"
+            aria-required="true"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </Form.Group>
+        <Form.Group controlId="lastName" className='item'>
+          <Form.Label htmlFor="lastName">Last Name:</Form.Label>
+          <Form.Control
+            type="text"
+            id="lastName"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+            required
+            aria-required="true"
+          />
+        </Form.Group>
+      </div>
+      <Form.Group className='input'>
         <Form.Label>Subject:</Form.Label>
         <Form.Control
           as="textarea"
@@ -87,7 +89,7 @@ function AppointmentForm({ addAppointment, openModal }) {
         <Col>
           <Form.Group controlId="radioOptions">
             <Form.Label>Choose a Service Type</Form.Label>
-            <div>
+            <div className='input-row'>
               <FormCheck
                 type="radio"
                 id="option1"
@@ -127,13 +129,22 @@ function AppointmentForm({ addAppointment, openModal }) {
           <option value="South Branch Office">South Branch Office</option>
           <option value="North Branch Office">North Branch Office</option>
         </Form.Select>
-        <p>Please note that the North Branch Office is closed on Mondays</p>
-      <Button variant="outline-secondary" type="submit" aria-label="Guardar cita">
-        Guardar cita
-      </Button>
+        <p className='subject-input'>
+          Please note that the North Branch Office is closed on Mondays
+        </p>
+        <div className='btn-box'>
+          <Button
+            type="submit"
+            variant="outline-secondary"
+            aria-label="Guardar cita"
+            className='btn'
+          >
+            Save date
+          </Button>
+        </div>
       {showAlert && (
         <Alert variant="danger" onClose={() => setShowAlert(false)} dismissible role="alert" >
-          Por favor, complete todos los campos.
+          Please fill out all the fields
         </Alert>
       )}
     </Form>

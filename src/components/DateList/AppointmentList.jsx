@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { ListGroup, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import ModalConfirm from '../ModalConfirm/ModalConfirm';
+import '../../app/App.scss';
 
 function AppointmentsList({ appointments, deleteAppointment }) {
   const [selectedAppointmentIndex, setSelectedAppointmentIndex] = useState(-1);
@@ -23,28 +24,33 @@ function AppointmentsList({ appointments, deleteAppointment }) {
   return (
     <div>
       <h2>Scheduled Appointments:</h2>
-      <ListGroup>
+      <div className='appointment-box'>
         {appointments.map((appointment, index) => (
-          <>
-            <ListGroup.Item key={index}>
-              <p><strong>Service Type:</strong>{appointment.selectedOption}</p>
-              <p><strong>Appointment Date:</strong>{appointment.date}</p>
-              <p><strong>Name:</strong>{appointment.name}</p>
-              <p><strong>Last Name:</strong>{appointment.lastName}</p>
-              <p><strong>Appointment Hour:</strong>{appointment.time}</p>
-              <p><strong>Subject:</strong>{appointment.subject}</p>
-              <p><strong>Location:</strong>{appointment.selectedLocation}</p>
-            </ListGroup.Item>
-            <Button 
-              variant="danger"
-              onClick={() => openConfirmModal(index)}
-              aria-label={`Eliminar cita de ${appointment.name} ${appointment.lastName}`}
-            >
-              Cancle Appointment 
-            </Button>
-          </>
+          <div className='appointment-card-box'>
+            <Card>
+              <Card.Body key={index}>
+                <p><strong>Service Type:</strong>{appointment.selectedOption}</p>
+                <p><strong>Appointment Date:</strong>{appointment.date}</p>
+                <p><strong>Name:</strong>{appointment.name}</p>
+                <p><strong>Last Name:</strong>{appointment.lastName}</p>
+                <p><strong>Appointment Hour:</strong>{appointment.time}</p>
+                <p><strong>Subject:</strong>{appointment.subject}</p>
+                <p><strong>Location:</strong>{appointment.selectedLocation}</p>
+              </Card.Body>
+              <div className='cancel-btn-box'>
+              <Button
+                  className='cancel-btn'
+                  variant="outline-danger"
+                  onClick={() => openConfirmModal(index)}
+                  aria-label={`Eliminar cita de ${appointment.name} ${appointment.lastName}`}
+                >
+                  Cancel Appointment
+                </Button>
+            </div>
+            </Card>
+          </div>
         ))}
-      </ListGroup>
+      </div>
       <ModalConfirm
         show={showConfirmModal}
         onClose={closeConfirmModal}

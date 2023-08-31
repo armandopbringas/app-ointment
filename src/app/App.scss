@@ -19,19 +19,80 @@
   }
 }
 
+.nav-styles {
+  height: 5rem;
+  background-color: #778da9;
+}
+
+.link-styles {
+  color: #e0e1dd;
+  text-decoration: none;
+}
+
+.link-styles:hover {
+  text-decoration: underline;
+  transition: 1s;
+}
+
 .title-app {
-  margin: 4rem 0 2rem 0;
+  margin: 2rem 0;
   text-align: center;
+  color: #778da9;
 }
 
 .app-text-instruction {
   margin-bottom: 2rem;
   text-align: center;
+  color: #1b263b;
 }
 
 
 @media screen and (min-width: 768px) {
-  .row {
+  .input-row {
     display: flex;
+    gap: 1rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+
+    .item {
+      width: 50%;
+    }
   }
+}
+
+.input {
+  margin-bottom: 0.5rem;
+}
+
+.subject-input {
+  margin: 0.5rem 0;
+}
+
+.appointment-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .appointment-box {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+.appointment-card-box {
+  width: 25rem;
+}
+
+.btn-box {
+  width: 100%;
+  margin: 2rem 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-btn-box {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  text-align: center;
 }
