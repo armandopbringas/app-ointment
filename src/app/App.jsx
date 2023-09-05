@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
 import './App.scss'
 import AppointmentsList from '../components/DateList/AppointmentList';
 import AppointmentForm from '../components/DateForm/AppointmentForm';
