@@ -10,8 +10,8 @@ function AppointmentForm({ addAppointment, openModal }) {
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
   const [subject, setSubject] = useState('');
-  const [selectedOption, setSelectedOption] = useState('option1');
-  const [selectedLocation, setSelectedLocation] = useState('norte');
+  const [selectedOption, setSelectedOption] = useState('Main Office');
+  const [selectedLocation, setSelectedLocation] = useState('Main Office');
   const [showAlert, setShowAlert] = useState(false);
 
   const handleSubmit = (e) => {
@@ -31,7 +31,7 @@ function AppointmentForm({ addAppointment, openModal }) {
       setDate('');
       setTime('');
       setSubject('');
-      setSelectedOption('option1');
+      setSelectedOption('Main Office');
       setSelectedLocation('norte');
       navigate('/appointments');
     }
@@ -92,27 +92,27 @@ function AppointmentForm({ addAppointment, openModal }) {
             <div className='input-row'>
               <FormCheck
                 type="radio"
-                id="option1"
+                id="Upgrade to REAL ID"
                 name="radioOptions"
                 label="Upgrade to REAL ID"
-                checked={selectedOption === 'option1'}
-                onChange={() => setSelectedOption('option1')}
+                checked={selectedOption === 'Upgrade to REAL ID'}
+                onChange={() => setSelectedOption('Upgrade to REAL ID')}
               />
               <FormCheck
                 type="radio"
-                id="option2"
+                id="Driving Test"
                 name="radioOptions"
                 label="Driving Test"
-                checked={selectedOption === 'option2'}
-                onChange={() => setSelectedOption('option2')}
+                checked={selectedOption === 'Driving Test'}
+                onChange={() => setSelectedOption('Driving Test')}
               />
               <FormCheck
                 type="radio"
-                id="option3"
+                id="Vehicle Registration"
                 name="radioOptions"
                 label="Vehicle Registration"
-                checked={selectedOption === 'option3'}
-                onChange={() => setSelectedOption('option3')}
+                checked={selectedOption === 'Vehicle Registration'}
+                onChange={() => setSelectedOption('Vehicle Registration')}
               />
             </div>
           </Form.Group>
