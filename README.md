@@ -1,8 +1,13 @@
-# React + Vite
+# Instrucciones para correr el proyecto en caso de ser necesario:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Instalar nodejs version Lts con el siguiente enlace:
+https://nodejs.org/es
 
-Currently, two official plugins are available:
+- Instalar yarn desde una terminal o línea de comandos de manera global con el siguiente comando:
+´npm install --global yarn´
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- En el root del proyecto correr el siguiente comando para instalar dependencias: 
+´yarn install´
+
+- Para correr el proyecto en el root del mismo correr el siguiente comando: 
+´yarn run dev´
