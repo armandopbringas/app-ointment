@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.scss'
-import AppointmentsList from '../components/DateList/AppointmentList';
-import AppointmentForm from '../components/DateForm/AppointmentForm';
+import AppointmentsList from '../components/AppointmentList/AppointmentList';
+import AppointmentForm from '../components/AppointmentForm/AppointmentForm';
 import ModalSucces from '../components/Modal/ModalSucces';
 import useAppointments from '../hooks/useAppointments';
 import useModal from '../hooks/useModal';
