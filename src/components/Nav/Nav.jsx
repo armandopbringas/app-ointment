@@ -1,7 +1,7 @@
 import { Container } from 'react-bootstrap';
 import { NavLink, useLocation } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
-import mainLog from '../../assets/logo.svg';
+import { BsFillCalendarCheckFill } from 'react-icons/bs';
 
 const HeaderNav = () => {
   const location = useLocation();
@@ -10,7 +10,7 @@ const HeaderNav = () => {
     <Navbar expand="lg" className="nav-styles">
       <Container>
         <NavLink to='/'>
-          <img src={mainLog} alt="" width={100} />
+          <BsFillCalendarCheckFill size={40} color="white" />
         </NavLink>
         {location.pathname === '/' ? (
           <NavLink to="/appointments" className='link-styles'>
